@@ -22,7 +22,7 @@ export class Compose extends React.Component {
     render() {
         const { subject,body,to } = this.state.mail
         return (
-            <form onSubmit={this.onSendMail}>
+            <form className="mail-compose" onSubmit={this.onSendMail}>
                 <div className="mail-header flex space-between center">
                     <h5>New Message</h5>
                     <button type="button" onClick={this.props.onCloseCompose}>X</button>

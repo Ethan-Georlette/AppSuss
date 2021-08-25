@@ -5,6 +5,8 @@ export const MailService = {
     query,
     setStarred,
     addMail,
+    getMailById,
+    setRead,
 }
 const gMails = storageService.loadFromStorage('mailsDB') || {};
 
@@ -25,7 +27,6 @@ function query(category) {
 }
 
 function addMail(email) {
-    console.log(email);
     let currMail=email;
     currMail.sentAt=getSentAt(email.sentAt);
     currMail.id = utilService.makeId()
@@ -34,13 +35,25 @@ function addMail(email) {
     currMail.isSent= true
     currMail.isRead= false
     gMails.mails.unshift(email)
+    _saveToStorage()
     return Promise.resolve();
 }
 
+function setRead(id){
+    const idx=gMails.mails.findIndex(mail=>mail.id===id)
+    gMails.mails[idx].isRead=true;
+    _saveToStorage()
+    return Promise.resolve();
+}
 function setStarred(id){
     const idx=gMails.mails.findIndex(mail=>mail.id===id)
     gMails.mails[idx].isStarred=!gMails.mails[idx].isStarred;
+    _saveToStorage()
     return Promise.resolve();
+}
+
+function getMailById(id){
+    return gMails.mails.find(mail=>mail.id===id);
 }
 
 function getSentAt(date) {
@@ -74,10 +87,15 @@ function _createGMails() {
             body: 'Would love to catch up sometimes',
             isRead: false,
             sentAt: getSentAt(new Date),
-            from: Math.random() > 0.5 ? 'Mr Popo' : 'Ms Banana',
+            from:{ name: Math.random() > 0.5 ? 'Mr Popo' : 'Ms Banana',
+            adress:'mail@mail.com'},
             isRead: false,
             isStarred: false,
             isSent: false,
         })
     }
+    _saveToStorage()
+}
+function _saveToStorage(){
+    storageService.saveToStorage('mailsDB',gMails)
 }

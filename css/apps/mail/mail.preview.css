@@ -1,8 +1,45 @@
+.mail-preview{
+    border-collapse: collapse;
+    margin-right: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-left: 5px;
+    transition: box-shadow 0.7s;
+}
+.mail-preview:hover{
+    box-shadow: inset rgba(149, 157, 165, 0.2) 0px 8px 24px;;
+    cursor: pointer;
+}
+.mail-preview a{
+    width: 100%;
+}
+.mail-preview p:last-child{
+    text-align: right;
+}
+.mail-preview p:not(last-child){
+    flex-grow: 1;
+    text-align: left;
+    overflow: hidden;
+}
 .select-box{
     width: 10px;
     height: 10px;
     border: 1px solid #555762;;
 }
+.mail-preview .fas.fa-star:hover::before{
+    cursor: pointer;
+    color: rgb(107, 107, 1);
+}
 .fas.fa-star.starred::before{
     color: rgb(204, 204, 76);
+}
+.mail-unread{
+    font-weight: bolder;
+    box-shadow: rgba(94, 98, 102, 0.383) 0px 8px 24px;
+}
+.mails-list{
+    margin-top: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.561);
+    border-collapse: collapse;
+    width: 100%;
+    flex-wrap: nowrap;
 }

@@ -8,7 +8,7 @@ export class MailHome extends React.Component {
     mails: null,
     user: '',
     category: null,
-    isCompose: true,
+    isCompose: false,
   }
 
   componentDidMount() {
@@ -49,11 +49,13 @@ export class MailHome extends React.Component {
     if (!mails) return <h1>loading...</h1>
     return (
       <React.Fragment>
-        <h1>Welcome {user.fullName}</h1>
+        {/* <div className="mail-header">
+          <h1>Welcome {user.fullName}</h1>
+        </div> */}
         <div className="mail-home">
-          {!isCompose && <button onClick={this.setCompose}>Compose</button>}
-          {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
           <div className="categories">
+            {!isCompose && <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>}
+            {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
             <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
           </div>
           <MailsList mails={mails} onSetStarred={this.onSetStarred} />
