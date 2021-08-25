@@ -7,11 +7,9 @@ import { MailHome } from "./pages/mail-home.jsx";
 export function MailApp() {
   return (
     <Router>
-      <main className='mail-app'>
         <Switch>
           <Route path="/mail" component={MailHome} />
         </Switch>
-      </main>
     </Router>
   )
 }

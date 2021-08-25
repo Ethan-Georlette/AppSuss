@@ -19,7 +19,7 @@ function debounce(func, wait) {
     };
   }
 
-function makeId(length = 6) {
+function makeId(length = 8) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
