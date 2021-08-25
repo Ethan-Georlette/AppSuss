@@ -1,7 +1,6 @@
 const Router = ReactRouterDOM.HashRouter;
 const { Route, Switch } = ReactRouterDOM;
-import { Inbox } from "./cmps/mail-inbox.jsx";
-import { MailHome } from "./cmps/mail-home.jsx";
+import { MailHome } from "./pages/mail-home.jsx";
 
 
 // Simple React Component
@@ -10,8 +9,7 @@ export function MailApp() {
     <Router>
       <main className='mail-app'>
         <Switch>
-          <Route exact path="/inbox" component={Inbox} />
-          <Route path="/" component={MailHome} />
+          <Route path="/mail" component={MailHome} />
         </Switch>
       </main>
     </Router>
