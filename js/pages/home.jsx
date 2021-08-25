@@ -1,12 +1,12 @@
-const {Link} = ReactRouterDOM;
+const { Link } = ReactRouterDOM;
 export class Home extends React.Component {
 
     render() {
         return (
             <div className="home">
-                <h1>Home</h1>
+                <h1>Appsus Home</h1>
                 {/* <hero></hero> */}
-            
+
             </div>
         )
     }
