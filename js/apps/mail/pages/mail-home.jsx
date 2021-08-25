@@ -48,15 +48,17 @@ export class MailHome extends React.Component {
     const { mails, user, category, isCompose } = this.state
     if (!mails) return <h1>loading...</h1>
     return (
-      <div className="mail-home">
-        {!isCompose && <button onClick={this.setCompose}>Compose</button>}
-        {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
-        <div className="categories">
-          <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
-        </div>
+      <React.Fragment>
         <h1>Welcome {user.fullName}</h1>
-        <MailsList mails={mails} onSetStarred={this.onSetStarred} />
-      </div>
+        <div className="mail-home">
+          {!isCompose && <button onClick={this.setCompose}>Compose</button>}
+          {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
+          <div className="categories">
+            <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
+          </div>
+          <MailsList mails={mails} onSetStarred={this.onSetStarred} />
+        </div>
+      </React.Fragment>
     )
   }
 }

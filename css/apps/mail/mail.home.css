@@ -1,0 +1,13 @@
+.mail-home{
+    display: flex;
+}
+.category-list li{
+    text-align: center;
+}
+.category-list li.active{
+    background-color: rgb(184, 173, 173);
+    border-radius: 15px;
+}
+.category-list li:hover{
+    cursor: pointer;
+}
