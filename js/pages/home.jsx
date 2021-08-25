@@ -1,10 +1,13 @@
+const {Link} = ReactRouterDOM;
 export class Home extends React.Component {
 
     render() {
         return (
-            <section>
-                <h2>Home Sweet Home</h2>
-            </section>
+            <div className="home">
+                <h1>Home</h1>
+                {/* <hero></hero> */}
+            
+            </div>
         )
     }
 }
