@@ -1,0 +1,33 @@
+@font-face {
+    font-family: Brands;
+    src: url(../../assets/fonts/brands-fab.otf);
+}
+.fab::before {
+    font-family: Brands;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+.fab.fa-facebook::before {
+    content: "\f082";
+    color: #4C6EF5;
+}
+
+
+
+@font-face {
+    font-family: icons;
+    src: url(../../assets/fonts/icon-fas.ttf);
+}
+
+.fas::before {
+    font-family: icons;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+.fas.fa-star::before {
+    content: "\f005";
+    color: #555762;
+    transition:color 0.5s;
+}
+
