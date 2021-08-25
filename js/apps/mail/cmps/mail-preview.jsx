@@ -8,7 +8,7 @@ export function MailPreview({ mail, onSetStarred }) {
                 onClick={() => onSetStarred(mail.id)}></i>
             <h5>{mail.from ? mail.from : mail.to}</h5>
             <h5>{mail.subject}</h5>
-            <p>{mail.body.slice(20)}...</p>
+            <p>{mail.body.slice(0,20)}...</p>
             <p>{mail.sentAt.date}</p>
         </div>
     );

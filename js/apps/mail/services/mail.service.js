@@ -4,6 +4,7 @@ import { storageService } from "../../../services/storage.service.js";
 export const MailService = {
     query,
     setStarred,
+    addMail,
 }
 const gMails = storageService.loadFromStorage('mailsDB') || {};
 
@@ -24,12 +25,16 @@ function query(category) {
 }
 
 function addMail(email) {
+    console.log(email);
     let currMail=email;
+    currMail.sentAt=getSentAt(email.sentAt);
     currMail.id = utilService.makeId()
     currMail.isRead= false
     currMail.isStarred= false
     currMail.isSent= true
+    currMail.isRead= false
     gMails.mails.unshift(email)
+    return Promise.resolve();
 }
 
 function setStarred(id){
@@ -56,8 +61,7 @@ function _createGMails() {
     let email = {
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
-        sentAt: getSentAt(new Date),
+        sentAt:new Date,
         to: 'momo@momo.com',
     }
 
