@@ -1,4 +1,4 @@
-
+import { NoteFeatures } from "./note-features.jsx"
 export class NoteVideo extends React.Component {
   state = {
     info: null,
@@ -26,6 +26,7 @@ export class NoteVideo extends React.Component {
           </iframe>
         </div>
         <p>{label}</p>
+        <NoteFeatures id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
     )
   }

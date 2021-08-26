@@ -1,4 +1,5 @@
 import { noteService } from "../services/note.service.js"
+import { NoteFeatures } from "./note-features.jsx"
 
 export class NoteTxt extends React.Component {
   state = {
@@ -30,6 +31,7 @@ export class NoteTxt extends React.Component {
       <div className='note note-txt flex column' style={style}>
         <p>{info.txt}</p>
         <p>{isPinned}</p>
+        <NoteFeatures id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
 
     )

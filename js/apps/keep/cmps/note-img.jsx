@@ -17,7 +17,6 @@ export class NoteImg extends React.Component {
     const { info, isPinned, style } = this.state
     if (!info) return <div>loading</div>
     const { url, title } = info
-    console.log(title);
     return (
       <div className='note note-img flex column' style={style}>
         <img src={url} />

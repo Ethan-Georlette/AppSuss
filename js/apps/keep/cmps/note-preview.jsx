@@ -9,13 +9,13 @@ export class NotePreview extends React.Component {
     const { note } = this.props
     switch (note.type) {
       case 'note-txt':
-        return <NoteTxt note={note} />
+        return <NoteTxt note={note} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       case 'note-img':
-        return <NoteImg note={note} />
+        return <NoteImg note={note} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       case 'note-todos':
-        return <NoteDotos note={note} />
+        return <NoteDotos note={note} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       case 'note-video':
-        return <NoteVideo note={note} />
+        return <NoteVideo note={note} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
     }
 
   }
