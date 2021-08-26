@@ -1,0 +1,21 @@
+.category-list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    width: 100px;
+    font-size: 1rem;
+}
+.category-list li.active{
+    background-color: rgb(184, 173, 173);
+}
+.category-list li:not(.active):hover{
+    cursor: pointer;
+    box-shadow: inset rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.categories>button:hover{
+    box-shadow: none;
+    cursor: pointer;
+}

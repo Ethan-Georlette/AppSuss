@@ -15,31 +15,25 @@
 .mail-preview p:last-child{
     text-align: right;
 }
-.mail-preview p:not(last-child){
+.mail-preview p{
     flex-grow: 1;
     text-align: left;
     overflow: hidden;
 }
-.select-box{
-    width: 10px;
-    height: 10px;
-    border: 1px solid #555762;;
-}
 .mail-preview .fas.fa-star:hover::before{
     cursor: pointer;
-    color: rgb(107, 107, 1);
+}
+.mail-preview .fas.fa-star:hover::before{
+    -webkit-text-stroke-color:#1e1f24 ;
+    -webkit-text-stroke-width:2px ;
+}
+.fas.fa-star.none::before{
+    color: #00000000;
+    -webkit-text-stroke-color:#555762 ;
+    -webkit-text-stroke-width:1px ;
 }
 .fas.fa-star.starred::before{
     color: rgb(204, 204, 76);
 }
-.mail-unread{
-    font-weight: bolder;
-    box-shadow: rgba(94, 98, 102, 0.383) 0px 8px 24px;
-}
-.mails-list{
-    margin-top: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.561);
-    border-collapse: collapse;
-    width: 100%;
-    flex-wrap: nowrap;
-}
+
+

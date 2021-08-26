@@ -80,7 +80,7 @@ export class MailHome extends React.Component {
         <FilterMail onFilterUpdate={this.onFilterUpdate} />
         <div className="mail-home">
           <div className="categories">
-            {!isCompose && <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>}
+            <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>
             {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
             <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
           </div>

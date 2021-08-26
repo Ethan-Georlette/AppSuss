@@ -32,7 +32,6 @@
 .fas.fa-star::before {
     content: "\f005";
     color: #555762;
-    transition:color 0.5s;
 }
 .fas.fa-envelope::before {
     content: "\f0e0";
@@ -48,10 +47,17 @@
 }
 .fas.fa-plus::before {
     content: "\f067";
-    color: #555762;
+    color: #3251ff;
+    transition: 1s;
 }
 .fas.fa-trash::before {
     content: "\f1f8";
     color: #555762;
+}
+.fas.fas.fa-envelope-open::before {
+    content: "\f2b6";
+    color: #00000000;
+    -webkit-text-stroke-color:#555762 ;
+    -webkit-text-stroke-width:2px ;
 }
 
