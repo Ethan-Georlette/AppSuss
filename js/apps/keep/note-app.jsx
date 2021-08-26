@@ -17,8 +17,8 @@ export class NoteApp extends React.Component {
             {/* <Route path="/keeper/notes" component={NoteTxt} /> */}
             {/* <Route path="/keeper/:noteId" component={NoteTxt} /> */}
             {/* <Route path="/" component={NoteHome} /> */}
+            <Route path='/keeper' component={NoteAppp} />
 
-            <NoteList notes={notes} />
 
 
           </Switch>

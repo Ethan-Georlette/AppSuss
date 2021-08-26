@@ -22,7 +22,7 @@ export class NoteVideo extends React.Component {
       <div className='note note-video flex column' style={style}>
         <div className='video-container'>
           <iframe src={url.replace('watch?v=', 'embed/')}
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
           </iframe>
         </div>
         <p>{label}</p>
