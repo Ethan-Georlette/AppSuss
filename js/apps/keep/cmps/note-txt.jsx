@@ -27,10 +27,11 @@ export class NoteTxt extends React.Component {
     const { info, isPinned, style } = this.state
     if (!info) return <div>loading</div>
     return (
-      <div className='note' style={style}>
+      <div className='note note-txt flex column' style={style}>
         <p>{info.txt}</p>
         <p>{isPinned}</p>
       </div>
+
     )
   }
 }

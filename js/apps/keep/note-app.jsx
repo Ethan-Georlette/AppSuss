@@ -10,7 +10,6 @@ export class NoteApp extends React.Component {
 
   render() {
     const notes = noteService.getNotes()
-    console.log('notes', notes);
     return (
       <Router>
         <main className='note-app'>
@@ -18,6 +17,7 @@ export class NoteApp extends React.Component {
             {/* <Route path="/keeper/notes" component={NoteTxt} /> */}
             {/* <Route path="/keeper/:noteId" component={NoteTxt} /> */}
             {/* <Route path="/" component={NoteHome} /> */}
+
             <NoteList notes={notes} />
 
 

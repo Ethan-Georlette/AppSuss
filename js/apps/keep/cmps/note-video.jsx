@@ -1,0 +1,32 @@
+
+export class NoteVideo extends React.Component {
+  state = {
+    info: null,
+    isPinned: null,
+    style: null
+  }
+
+  componentDidMount() {
+    const { note } = this.props
+    this.setState({ info: note.info, isPinned: note.isPinned, style: note.style })
+
+  }
+
+  render() {
+
+    const { info, isPinned, style } = this.state
+    if (!info) return <div>loading</div>
+    const { url, label } = info
+    // console.log('embeded', url.replace('watch?v=', 'embed/'));
+    return (
+      <div className='note note-video flex column' style={style}>
+        <div className='video-container'>
+          <iframe src={url.replace('watch?v=', 'embed/')}
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
+        <p>{label}</p>
+      </div>
+    )
+  }
+}
