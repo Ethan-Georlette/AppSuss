@@ -7,53 +7,74 @@ export const MailService = {
     addMail,
     getMailById,
     setRead,
+    deleteMail,
 }
 const gMails = storageService.loadFromStorage('mailsDB') || {};
 
 
 
-function query(category) {
+function query(category, filter) {
     if (!gMails.mails) {
         _createGMails();
     }
-    const user=gMails.user
-    if(category){
-        const mailsToShow=gMails.mails.filter(mail=>{
+    const user = gMails.user
+    let mails = filter ? gMails.mails.filter(mail => {
+        return (mail.subject.toLowerCase().includes(filter.text.toLowerCase())
+            || mail.body.toLowerCase().includes(filter.text.toLowerCase())
+            || (mail.to ? mail.to.toLowerCase().includes(filter.text.toLowerCase()) :
+                (mail.from.name.toLowerCase().includes(filter.text.toLowerCase())
+                    || mail.from.adress.toLowerCase().includes(filter.text.toLowerCase()))))
+    })
+        .filter(mail => {
+            if (filter.isRead === null) return true;
+            else {
+                return mail.isRead === filter.isRead
+            }
+        }) : gMails.mails
+    if (category) {
+        const mailsToShow = mails.filter(mail => {
             return mail[category];
         })
-        return Promise.resolve({mails:mailsToShow,user})
+        return Promise.resolve({ mails: mailsToShow, user })
     }
-    return Promise.resolve({mails:gMails.mails,user})
+    return Promise.resolve({ mails, user })
 }
 
 function addMail(email) {
-    let currMail=email;
-    currMail.sentAt=getSentAt(email.sentAt);
+    let currMail = email;
+    currMail.sentAt = getSentAt(email.sentAt);
     currMail.id = utilService.makeId()
-    currMail.isRead= false
-    currMail.isStarred= false
-    currMail.isSent= true
-    currMail.isRead= false
+    currMail.isRead = false
+    currMail.isStarred = false
+    currMail.isSent = true
+    currMail.isRead = false
     gMails.mails.unshift(email)
     _saveToStorage()
     return Promise.resolve();
 }
 
-function setRead(id){
-    const idx=gMails.mails.findIndex(mail=>mail.id===id)
-    gMails.mails[idx].isRead=true;
-    _saveToStorage()
-    return Promise.resolve();
-}
-function setStarred(id){
-    const idx=gMails.mails.findIndex(mail=>mail.id===id)
-    gMails.mails[idx].isStarred=!gMails.mails[idx].isStarred;
+function setRead(id) {
+    const idx = gMails.mails.findIndex(mail => mail.id === id)
+    gMails.mails[idx].isRead = true;
     _saveToStorage()
     return Promise.resolve();
 }
 
-function getMailById(id){
-    return gMails.mails.find(mail=>mail.id===id);
+function setStarred(id) {
+    const idx = gMails.mails.findIndex(mail => mail.id === id)
+    gMails.mails[idx].isStarred = !gMails.mails[idx].isStarred;
+    _saveToStorage()
+    return Promise.resolve();
+}
+
+function deleteMail(id) {
+    const idx = gMails.mails.findIndex(mail => mail.id === id);
+    gMails.mails.splice(idx, 1)
+    return Promise.resolve();
+}
+
+function getMailById(id) {
+    return gMails.mails.find(mail => mail.id === id);
 }
 
 function getSentAt(date) {
@@ -74,21 +95,23 @@ function _createGMails() {
     let email = {
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
-        sentAt:new Date,
+        sentAt: new Date,
         to: 'momo@momo.com',
     }
 
     for (var i = 0; i < 5; i++) {
-        addMail({...email});
-        var id=utilService.makeId();
+        addMail({ ...email });
+        var id = utilService.makeId();
         gMails.mails.push({
             id,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
             isRead: false,
             sentAt: getSentAt(new Date),
-            from:{ name: Math.random() > 0.5 ? 'Mr Popo' : 'Ms Banana',
-            adress:'mail@mail.com'},
+            from: {
+                name: Math.random() > 0.5 ? 'Mr Popo' : 'Ms Banana',
+                adress: 'mail@mail.com'
+            },
             isRead: false,
             isStarred: false,
             isSent: false,
@@ -96,6 +119,7 @@ function _createGMails() {
     }
     _saveToStorage()
 }
-function _saveToStorage(){
-    storageService.saveToStorage('mailsDB',gMails)
+
+function _saveToStorage() {
+    storageService.saveToStorage('mailsDB', gMails)
 }

@@ -1,19 +1,17 @@
 const { Link } = ReactRouterDOM;
-export function MailPreview({ mail, onSetStarred }) {
+export function MailPreview({ mail, onSetStarred, onDeleteMail }) {
     return (
-        <div className={mail.isRead ? "mail-preview flex space-between center" : "mail-preview flex space-between center mail-unread"}>
-            <div className="mail-select flex center">
-                <div className="select-box">
+        <Link to={`/mail/${mail.id}`} className={mail.isRead ? "mail-preview flex space-between center" : "mail-preview flex space-between center mail-unread"}>
+                <div className="mail-select flex center">   
+                    <i className={mail.isRead? "fas fa-envelope-open" : "fas fa-envelope"}></i>
+                    <i className={mail.isStarred ? "fas fa-star starred" : "fas fa-star none"}
+                        onClick={(ev) => { ev.preventDefault(); onSetStarred(mail.id) }}></i>
                 </div>
-                <i className={mail.isStarred ? "fas fa-star starred" : "fas fa-star"}
-                    onClick={() => onSetStarred(mail.id)}></i>
-            </div>
-            <Link className="flex space-between center" to={`/mail/${mail.id}`}>
                 <p>{mail.from ? mail.from.name : mail.to}</p>
                 <p>{mail.subject}</p>
                 <p>{mail.body.slice(0, 20)}...</p>
                 <p>{mail.sentAt.date}</p>
-            </Link>
-        </div >
+                <i className="fas fa-trash" onClick={(ev) => { ev.preventDefault(); onDeleteMail(mail.id) }}></i>
+        </Link>
     );
 }

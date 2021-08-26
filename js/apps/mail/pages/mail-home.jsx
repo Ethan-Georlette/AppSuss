@@ -2,6 +2,7 @@ import { MailCatagories } from '../cmps/mail-categories.jsx';
 import { MailsList } from '../cmps/mails-list.jsx';
 import { MailService } from '../services/mail.service.js'
 import { Compose } from '../cmps/mail-compose.jsx'
+import { FilterMail } from '../cmps/filter-mail.jsx';
 
 export class MailHome extends React.Component {
   state = {
@@ -9,6 +10,10 @@ export class MailHome extends React.Component {
     user: '',
     category: null,
     isCompose: false,
+    filter: {
+      text: '',
+      isRead: null,
+    },
   }
 
   componentDidMount() {
@@ -16,7 +21,7 @@ export class MailHome extends React.Component {
   }
 
   loadMails = () => {
-    MailService.query(this.state.category)
+    MailService.query(this.state.category, this.state.filter)
       .then(({ mails, user }) => {
         this.setState({ mails, user });
       });
@@ -26,8 +31,14 @@ export class MailHome extends React.Component {
     this.setState({ category }, this.loadMails)
   }
 
-  onSetStarred = (mailId) => {
+  onSetStarred = (mailId, ev) => {
+    console.log(ev);
     MailService.setStarred(mailId)
+      .then(this.loadMails)
+  }
+
+  onDeleteMail = (mailId) => {
+    MailService.deleteMail(mailId)
       .then(this.loadMails)
   }
 
@@ -40,25 +51,40 @@ export class MailHome extends React.Component {
       })
   }
 
+  onFilterUpdate = (type, val) => {
+    if (type === 'isRead') {
+      switch (val) {
+        case 'null':
+          val = null;
+          break;
+        case 'true':
+          val = true;
+          break;
+        case 'false':
+          val = false;
+          break;
+      }
+    }
+    this.setState(prevState => ({ filter: { ...prevState.filter, [type]: val } }), this.loadMails)
+  }
+
   setCompose = () => {
     this.setState({ isCompose: !this.state.isCompose });
   }
 
   render() {
-    const { mails, user, category, isCompose } = this.state
+    const { mails, category, isCompose } = this.state
     if (!mails) return <h1>loading...</h1>
     return (
       <React.Fragment>
-        {/* <div className="mail-header">
-          <h1>Welcome {user.fullName}</h1>
-        </div> */}
+        <FilterMail onFilterUpdate={this.onFilterUpdate} />
         <div className="mail-home">
           <div className="categories">
-            {!isCompose && <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>}
+            <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>
             {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
             <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
           </div>
-          <MailsList mails={mails} onSetStarred={this.onSetStarred} />
+          <MailsList mails={mails} onSetStarred={this.onSetStarred} onDeleteMail={this.onDeleteMail} />
         </div>
       </React.Fragment>
     )
