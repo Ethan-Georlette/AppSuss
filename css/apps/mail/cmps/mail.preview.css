@@ -23,7 +23,7 @@
 .mail-preview .fas.fa-star:hover::before{
     cursor: pointer;
 }
-.mail-preview .fas.fa-star:hover::before{
+.mail-preview .fas.fa-star.none:hover::before{
     -webkit-text-stroke-color:#1e1f24 ;
     -webkit-text-stroke-width:2px ;
 }
