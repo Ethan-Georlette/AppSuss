@@ -50,4 +50,8 @@
     content: "\f067";
     color: #555762;
 }
+.fas.fa-trash::before {
+    content: "\f1f8";
+    color: #555762;
+}
 
