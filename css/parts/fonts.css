@@ -5,7 +5,11 @@
 .fab::before {
     font-family: Brands;
     font-style: normal;
-    font-size: 3rem;
+    font-size: 1.5rem;
+}
+.fab.fa-firstdraft::before{
+    content: "\f3a1";
+    color: #555762;
 }
 
 .fab.fa-facebook::before {
@@ -29,5 +33,21 @@
     content: "\f005";
     color: #555762;
     transition:color 0.5s;
+}
+.fas.fa-envelope::before {
+    content: "\f0e0";
+    color: #555762;
+}
+.fas.fa-inbox::before {
+    content: "\f01c";
+    color: #555762;
+}
+.fas.fa-share-square::before {
+    content: "\f14d";
+    color: #555762;
+}
+.fas.fa-plus::before {
+    content: "\f067";
+    color: #555762;
 }
 

@@ -1,6 +1,8 @@
 @import './parts/base.css';
 @import './cmps/app-header.css';
+@import './cmps/app-footer.css';
 @import './parts/helpers.css';
 @import './parts/fonts.css';
 @import './apps/mail/mail.preview.css';
 @import './apps/keep/note.preview.css';
+@import './apps/mail/mail.home.css';

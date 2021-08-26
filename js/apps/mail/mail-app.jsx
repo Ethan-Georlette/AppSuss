@@ -1,5 +1,6 @@
 const Router = ReactRouterDOM.HashRouter;
 const { Route, Switch } = ReactRouterDOM;
+import { MailDetails } from "./pages/mail-details.jsx";
 import { MailHome } from "./pages/mail-home.jsx";
 
 
@@ -7,11 +8,10 @@ import { MailHome } from "./pages/mail-home.jsx";
 export function MailApp() {
   return (
     <Router>
-      <main className='mail-app'>
         <Switch>
+          <Route path="/mail/:mailId" component={MailDetails} />
           <Route path="/mail" component={MailHome} />
         </Switch>
-      </main>
     </Router>
   )
 }
