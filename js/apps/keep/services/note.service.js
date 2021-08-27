@@ -3,18 +3,25 @@ import { utilService } from "../../../services/util.service.js";
 
 let gNotes = []
 let _defaultStyle = {
-  backgroundColor: 'lightblue'
+  backgroundColor: 'lightblue',
+  writable: true
 }
 let someNote = {
   id: "n101", type: "note-txt", isPinned: true, info: { txt: "Fullstack Me Baby!" },
-  styled: { backgroundColor: 'lightblue' }
+  styled: {
+    backgroundColor: 'lightblue',
+    writable: true
+  }
 };
 // assets\img\keep\idanIsAFather.jpg
 let noteImg = {
   id: "n102", type: "note-img",
   isPinned: true,
   info: { url: ".././assets/img/keep/idanIsAFather.jpg", title: "Bobi and Me" },
-  styled: { backgroundColor: "#00d" }
+  styled: {
+    backgroundColor: "#00d",
+    writable: true
+  }
 }
 let todoNote = {
   id: "n103",
@@ -27,7 +34,11 @@ let todoNote = {
       { txt: "Coding power", doneAt: 187111111 }
     ]
   },
-  styled: { backgroundColor: '#888' }
+  styled: {
+    backgroundColor: '#888',
+    writable: true
+  },
+
 }
 
 let videoNote = {
@@ -40,14 +51,18 @@ let videoNote = {
     // url: 'https://www.youtube.com/watch?v=dlOHVCZZwEc&t=331s'
     url: 'https://www.youtube.com/watch?v=OOy764mDtiA'
   },
-  styled: { backgroundColor: '#888' }
+  styled: {
+    backgroundColor: '#888',
+    writable: true
+  },
+  writable: true
 }
 
 gNotes.push(someNote)
 gNotes.push(noteImg)
 gNotes.push(todoNote)
 gNotes.push(videoNote)
-function createNote(type, txt, url, todosString, isPinned = false, styled = null) {
+function createNote(type, txt, url, todosString, isPinned = false, styled = _defaultStyle) {
 
   const newNote = {
     id: utilService.makeId(), type, isPinned, styled
@@ -80,7 +95,9 @@ const getTodosFromString = (strToFormat) => {
 
 function updateStyle(id, styled) {
   const note = gNotes.find(note => note.id === id)
+  note.styled.whatever = 'muki'
   note.styled = styled
+  // note.styled = styled
   return Promise.resolve()
 }
 

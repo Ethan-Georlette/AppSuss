@@ -11,7 +11,7 @@ export class NoteFeatures extends React.Component {
   }
   render() {
     return <div className='note-feature'>
-      <input type="color" name="backgroundColor" onChange={this.onSetStyle} />
-    </div>
+      <label htmlFor="palette" onClick={() => console.log('palette clicked')} className='palette'></label>
+    </div >
   }
 }

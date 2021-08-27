@@ -93,3 +93,18 @@
   font-family: icons;
   content    : '\f04b';
 }
+
+.palette-container {
+  position: relative;
+}
+
+.palette-container input {
+  width     : 1px;
+  height    : 1px;
+  visibility: hidden;
+}
+
+.palette::before {
+  font-family: icons;
+  content    : '\f53f';
+}
