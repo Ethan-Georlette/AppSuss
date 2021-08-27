@@ -4,12 +4,12 @@ export class NoteDotos extends React.Component {
   state = {
     info: null,
     isPinned: null,
-    style: null
+    styled: null
   }
 
   componentDidMount() {
     const { note } = this.props
-    this.setState({ info: note.info, isPinned: note.isPinned, style: note.style })
+    this.setState({ info: note.info, isPinned: note.isPinned, styled: note.styled })
 
   }
 
@@ -23,12 +23,12 @@ export class NoteDotos extends React.Component {
   }
   render() {
 
-    const { info, isPinned, style } = this.state
+    const { info, isPinned, styled } = this.state
     if (!info) return <div>loading</div>
     const { label, todos } = info
 
     return (
-      <div className='note note-todos flex column' style={style}>
+      <div className='note note-todos flex column' style={styled}>
         <p>{label}</p>
         <ul className='todo-list clean-list'>
           {this.renderTodos(todos)}

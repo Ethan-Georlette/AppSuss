@@ -71,11 +71,11 @@ export class NewNote extends React.Component {
 
 
   showFeedback = () => {
-    console.log('New Note Added');
+    // console.log('New Note Added');
   }
 
   render() {
-    console.log('state,', this.state);
+    // console.log('state,', this.state);
     const { type, placeholder, url, txt, todosString } = this.state
 
     return <form className='new-note-container flex space-between' onSubmit={this.onSubmit}>

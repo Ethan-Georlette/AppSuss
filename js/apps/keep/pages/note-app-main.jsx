@@ -18,6 +18,7 @@ export class NoteAppMain extends React.Component {
   };
 
   loadNotes = () => {
+    console.log('loading notes');
     noteService.query(this.state.filterBy)
       .then((notesToRender) => {
         this.setState({ notesToRender });
@@ -40,6 +41,7 @@ export class NoteAppMain extends React.Component {
   render() {
     const { notesToRender } = this.state
     if (!notesToRender) return <div>loading</div>
+    console.log('notesToRender', notesToRender);
     return (
       <div className='note-app-main flex column align-center'>
         <NewNote onAddNote={this.onAddNote} />

@@ -3,23 +3,35 @@ export class NoteVideo extends React.Component {
   state = {
     info: null,
     isPinned: null,
-    style: null
+    styled: null
   }
 
   componentDidMount() {
+    console.log('component is mounting');
     const { note } = this.props
-    this.setState({ info: note.info, isPinned: note.isPinned, style: note.style })
+    // this.styled = note.styled
+    this.setState({ info: note.info, isPinned: note.isPinned, styled: this.styled })
 
   }
 
-  render() {
+  styled
+  componentDidUpdate() {
+    console.log('Component is updating');
+    const { note } = this.props
+    // this.styled = note.styled
+    // console.log('note-txt', note);
+    // this.setState({ info: note.info, isPinned: note.isPinned, styled: note.styled })
 
-    const { info, isPinned, style } = this.state
-    if (!info) return <div>loading</div>
+  }
+  render() {
+    console.log('component is rendering');
+    const { info, isPinned } = this.state
+    this.styled = this.props.note.styled;
+    if (!info || !this.styled) return <div>loading</div>
     const { url, label } = info
-    // console.log('embeded', url.replace('watch?v=', 'embed/'));
+    console.log('styled from video render -', this.styled);
     return (
-      <div className='note note-video flex column' style={style}>
+      <div className='note note-video flex column' style={this.styled}>
         <div className='video-container'>
           <iframe src={url.replace('watch?v=', 'embed/')}
             title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>

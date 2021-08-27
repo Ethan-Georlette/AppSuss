@@ -6,8 +6,8 @@ export class NoteFeatures extends React.Component {
   }
 
   onSetStyle = ({ target }) => {
-    const style = { [target.name]: target.value }
-    this.props.onUpdateNoteStyle(this.props.id, style)
+    const newStyle = { [target.name]: target.value }
+    this.props.onUpdateNoteStyle(this.props.id, newStyle)
   }
   render() {
     return <div className='note-feature'>

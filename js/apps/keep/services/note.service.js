@@ -7,14 +7,14 @@ let _defaultStyle = {
 }
 let someNote = {
   id: "n101", type: "note-txt", isPinned: true, info: { txt: "Fullstack Me Baby!" },
-  style: { backgroundColor: 'lightblue' }
+  styled: { backgroundColor: 'lightblue' }
 };
 // assets\img\keep\idanIsAFather.jpg
 let noteImg = {
   id: "n102", type: "note-img",
   isPinned: true,
   info: { url: ".././assets/img/keep/idanIsAFather.jpg", title: "Bobi and Me" },
-  style: { backgroundColor: "#00d" }
+  styled: { backgroundColor: "#00d" }
 }
 let todoNote = {
   id: "n103",
@@ -27,7 +27,7 @@ let todoNote = {
       { txt: "Coding power", doneAt: 187111111 }
     ]
   },
-  style: { backgroundColor: '#888' }
+  styled: { backgroundColor: '#888' }
 }
 
 let videoNote = {
@@ -40,20 +40,17 @@ let videoNote = {
     // url: 'https://www.youtube.com/watch?v=dlOHVCZZwEc&t=331s'
     url: 'https://www.youtube.com/watch?v=OOy764mDtiA'
   },
-  style: { backgroundColor: '#888' }
+  styled: { backgroundColor: '#888' }
 }
 
 gNotes.push(someNote)
 gNotes.push(noteImg)
 gNotes.push(todoNote)
 gNotes.push(videoNote)
-function createNote(type, txt, url, todosString, isPinned = false, style = null) {
-  let newStyle
-  if (!style) {
-    newStyle = _defaultStyle
-  }
+function createNote(type, txt, url, todosString, isPinned = false, styled = null) {
+
   const newNote = {
-    id: utilService.makeId(), type, isPinned, style: newStyle
+    id: utilService.makeId(), type, isPinned, styled
   }
   const info = type === 'note-txt' ? { txt } : type === 'note-img' ? { url, title: txt } :
     type === 'note-video' ? { label: txt, url } : { label: txt, todos: getTodosFromString(todosString) }
@@ -81,14 +78,9 @@ const getTodosFromString = (strToFormat) => {
   return strToFormat.split(',').map(str => ({ txt: str }))
 }
 
-function updateStyle(id, style) {
-  const noteIdx = gNotes.findIndex(note => note.id === id)
-  for (const key in style) {
-    gNotes[noteIdx].style['color'] = 'white';
-
-
-  }
-  // Object.assign(note.style, style)
+function updateStyle(id, styled) {
+  const note = gNotes.find(note => note.id === id)
+  note.styled = styled
   return Promise.resolve()
 }
 
