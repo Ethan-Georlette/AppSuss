@@ -14,6 +14,7 @@ export class MailHome extends React.Component {
       text: '',
       isRead: null,
     },
+    draftMail:null,
   }
 
   componentDidMount() {
@@ -72,21 +73,24 @@ export class MailHome extends React.Component {
     this.setState({ isCompose: !this.state.isCompose });
   }
 
+  onDraftClick=(mail)=>{
+    this.setState({isCompose:true,draftMail:mail})
+  }
+
   render() {
-    const { mails, category, isCompose } = this.state
+    const { mails, category, isCompose ,draftMail } = this.state
     if (!mails) return <h1>loading...</h1>
     return (
-      <React.Fragment>
-        <FilterMail onFilterUpdate={this.onFilterUpdate} />
         <div className="mail-home">
+        <FilterMail onFilterUpdate={this.onFilterUpdate} />
           <div className="categories">
-            <button className="fas fa-plus" onClick={this.setCompose}>Compose</button>
-            {isCompose && <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} />}
+            <button className="fas fa-plus" onClick={this.setCompose}></button>
+            {isCompose &&
+            <Compose onSendMail={this.onSendMail} onCloseCompose={this.setCompose} mail={draftMail}/>}
             <MailCatagories currCategory={category} onSetCategory={this.onSetCategory} />
           </div>
-          <MailsList mails={mails} onSetStarred={this.onSetStarred} onDeleteMail={this.onDeleteMail} />
+          <MailsList mails={mails} onSetStarred={this.onSetStarred} onDeleteMail={this.onDeleteMail}  onDraftClick={this.onDraftClick}  />
         </div>
-      </React.Fragment>
     )
   }
 }

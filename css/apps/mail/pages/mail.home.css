@@ -1,26 +1,49 @@
 
 .mail-home{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 10px;
 }
 .categories>button{
     margin-top: 15px;
     border: none;
     display: flex;
-    align-items: center;
-    font-weight: bolder;
+    width: 80%;
     justify-content: space-evenly;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: rgb(0 0 0) 0px 0px 16px 0px;
     background-color: rgb(240, 236, 236);
-    border-radius: 15px;
+    border-radius: 50%;
     height: 40px;
-    transition: box-shadow 0.7s;
+    transition: 0.2s;
+    content:normal;
+    overflow: hidden;;
 }
 .categories{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0px;
     gap: 10px;
+    width: 60px;
+    background-color: rgb(255, 255, 255);
+    height:100% ;
+    transition: 0.2s;
+}
+.categories:hover{
+    align-items:stretch;
+    padding-left: 6px;
+    box-shadow: 11px 0px 20px 0px #716c6c;
+    width: 30vw;
+}
+.categories:hover>button{
+    border-radius: 15px;
+    width: 90%;
+}
+.categories:hover>button::after{
+    content:"Compose";
 }
 .fas.fa-plus:hover:before {
     transform: rotateZ(90deg);

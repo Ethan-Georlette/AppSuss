@@ -1,0 +1,25 @@
+.home-features{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.home-features img{
+    height: 50px;
+}
+.feature-home a:hover{
+    box-shadow: inset rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.feature-home a{
+    padding: 5px;
+    background-color: #00ADEF;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.feature-home{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+}

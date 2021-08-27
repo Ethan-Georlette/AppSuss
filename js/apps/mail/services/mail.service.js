@@ -8,6 +8,7 @@ export const MailService = {
     getMailById,
     setRead,
     deleteMail,
+    addAsDraft,
 }
 const gMails = storageService.loadFromStorage('mailsDB') || {};
 
@@ -31,9 +32,12 @@ function query(category, filter) {
                 return mail.isRead === filter.isRead
             }
         }) : gMails.mails
+    if (category !== 'isDraft') {
+       mails= mails.filter(mail => !mail.isDraft)
+    }
     if (category) {
         const mailsToShow = mails.filter(mail => {
-            return mail[category];
+            return mail[category]
         })
         return Promise.resolve({ mails: mailsToShow, user })
     }
@@ -48,9 +52,26 @@ function addMail(email) {
     currMail.isStarred = false
     currMail.isSent = true
     currMail.isRead = false
+    currMail.isDraft = false
     gMails.mails.unshift(email)
     _saveToStorage()
     return Promise.resolve();
+}
+
+function addAsDraft(email, id = null) {
+    let currMail = email;
+    currMail.sentAt = '';
+    currMail.id = id ? id : utilService.makeId()
+    currMail.isDraft = true
+    if (!id) {
+        gMails.mails.unshift(email)
+    }
+    else {
+        const idx = gMails.mails.findIndex((mail) => id === mail.id)
+        gMails.mails[idx] = email;
+    }
+    _saveToStorage()
+    return Promise.resolve(email.id)
 }
 
 function setRead(id) {

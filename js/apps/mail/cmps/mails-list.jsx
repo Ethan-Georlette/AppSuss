@@ -1,9 +1,9 @@
 import { MailPreview } from "./mail-preview.jsx";
-export function MailsList({ mails, onSetStarred, onDeleteMail }) {
+export function MailsList({ mails, onSetStarred, onDeleteMail, onDraftClick}) {
   return (
     <div className="mails-list">
-      {!mails.length&&<h1>No Mails to show...</h1>}
-      {mails.map((mail) => <MailPreview key={mail.id} mail={mail} onDeleteMail={onDeleteMail} onSetStarred={onSetStarred} />)}
+      {!mails.length&&<h2>No Mails to show...</h2>}
+      {mails.map((mail) => <MailPreview onDraftClick={onDraftClick} key={mail.id} mail={mail} onDeleteMail={onDeleteMail} onSetStarred={onSetStarred} />)}
     </div>
   );
 }

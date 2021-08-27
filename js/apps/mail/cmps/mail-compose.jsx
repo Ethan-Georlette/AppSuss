@@ -1,3 +1,5 @@
+import { MailService } from "../services/mail.service.js";
+
 export class Compose extends React.Component {
     state = {
         mail: {
@@ -6,6 +8,35 @@ export class Compose extends React.Component {
             to: '',
         }
     }
+    saveAsDraftInteval
+    draftId = null;
+
+    componentDidMount() {
+        const { mail } = this.props
+        if (mail) {
+            this.setState({
+                mail: {
+                    subject: mail.subject,
+                    body: mail.body,
+                    to: mail.to
+                }
+            })
+            this.draftId = mail.id;
+        }
+        this.saveAsDraftInteval = setInterval(this.saveMailAsDraft, 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.saveAsDraftInteval)
+        console.log('clear');
+    }
+
+    saveMailAsDraft = () => {
+        console.log('saving');
+        MailService.addAsDraft(this.state.mail, this.draftId)
+            .then(id => this.draftId = id);
+    }
+
     handleChange = ({ target }) => {
         let input = target.value;
         let key = target.name;
@@ -16,11 +47,12 @@ export class Compose extends React.Component {
 
     onSendMail = (ev) => {
         ev.preventDefault();
-        this.props.onSendMail(this.state.mail)
+        this.props.onSendMail(this.state.mail);
+        MailService.deleteMail(this.draftId);
     }
 
     render() {
-        const { subject,body,to } = this.state.mail
+        const { subject, body, to } = this.state.mail
         return (
             <form className="mail-compose" onSubmit={this.onSendMail}>
                 <div className="mail-header flex space-between center">

@@ -1,0 +1,22 @@
+.profile-pic{
+    height: 200px;
+    border-radius: 50%;
+    width: 200px;
+}
+.ethan{
+    background-image: url('../../assets/img/main/Ethan_profile.jpg');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position:30px -6px;
+}
+.info{
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    border-top: 2px gray solid;
+    width: 80%;
+}
+.social-links{
+    justify-content: center;
+    gap: 10px;
+}
