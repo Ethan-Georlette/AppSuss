@@ -7,8 +7,8 @@ export function MailPreview({ mail, onSetStarred, onDeleteMail, onDraftClick }) 
                 <i className={mail.isStarred ? "fas fa-star starred" : "fas fa-star none"}
                     onClick={(ev) => { ev.preventDefault(); onSetStarred(mail.id) }}></i>
             </div>
-            <span>{mail.from ? mail.from.name : mail.to}</span>
-            <span>{mail.subject}</span>
+            <span className="adress">{mail.from ? mail.from.name : mail.to}</span>
+            <span className="subject">{mail.subject}</span>
             <span>{mail.body.slice(0, 20)}...</span>
             <span className="date">{mail.sentAt.date}</span>
             <i className="fas fa-trash" onClick={(ev) => { ev.preventDefault(); onDeleteMail(mail.id) }}></i>
