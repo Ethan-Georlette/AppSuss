@@ -31,3 +31,8 @@
 .new-btn.clicked {
   color: black
 }
+
+.submit {
+  visibility: hidden;
+  width     : 0.1px;
+}

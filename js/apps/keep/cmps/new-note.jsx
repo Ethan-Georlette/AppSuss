@@ -87,7 +87,7 @@ export class NewNote extends React.Component {
         <button type='button' value='note-video' className={`new-btn note-video-btn ${type === 'note-video' ? 'clicked' : ''}`}
           onClick={this.onChangeType} ></button>
       </div>
-      <button>submit</button>
+      <button className="submit"></button>
     </form>
   }
 }

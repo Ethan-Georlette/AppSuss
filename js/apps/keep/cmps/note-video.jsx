@@ -9,27 +9,20 @@ export class NoteVideo extends React.Component {
   componentDidMount() {
     console.log('component is mounting');
     const { note } = this.props
-    // this.styled = note.styled
     this.setState({ info: note.info, isPinned: note.isPinned, styled: this.styled })
 
   }
 
   styled
   componentDidUpdate() {
-    console.log('Component is updating');
     const { note } = this.props
-    // this.styled = note.styled
-    // console.log('note-txt', note);
-    // this.setState({ info: note.info, isPinned: note.isPinned, styled: note.styled })
 
   }
   render() {
-    console.log('component is rendering');
     const { info, isPinned } = this.state
     this.styled = this.props.note.styled;
     if (!info || !this.styled) return <div>loading</div>
     const { url, label } = info
-    console.log('styled from video render -', this.styled);
     return (
       <div className='note note-video flex column' style={this.styled}>
         <div className='video-container'>

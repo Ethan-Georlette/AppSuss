@@ -2,3 +2,33 @@ input {
   padding: 0;
   margin : 0;
 }
+
+.note-list {
+  gap      : 15px;
+  flex-wrap: wrap;
+}
+
+.note {
+  display      : block;
+  width        : 280px;
+  /* align-self: flex-start */
+}
+
+.note-txt,
+.note-todos {
+  padding: 0.7rem 0.7rem 1rem;
+}
+
+.note-img {
+  gap    : 10px;
+  padding: 0;
+
+}
+
+.note-img img {
+  width: 100%;
+}
+
+.col>:not(:last-child) {
+  margin-bottom: 20px;
+}
