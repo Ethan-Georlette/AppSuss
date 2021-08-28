@@ -1,11 +1,15 @@
+/* .category-list{
+    justify-content: center;
+    align-content:center;
+} */
 .category-list li{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: center;
+    padding: 3px;
     text-align: center;
-    border-radius: 15px;
-    width: 100px;
+    border-radius: 50%;
+    /* width: 80%; */
     font-size: 1rem;
 }
 .category-list li.active{
@@ -18,4 +22,24 @@
 .categories>button:hover{
     box-shadow: none;
     cursor: pointer;
+}
+.categories:hover li::before{
+    margin-right: 10px;
+}
+.categories:hover li{
+    width: 90%;
+    justify-content: left;
+    border-radius: 15px;
+}
+.categories:hover li.fa-inbox::after{
+    content:"Inbox";
+}
+.categories:hover li.fa-star::after{
+    content:"Starred";
+}
+.categories:hover li.fa-share-square::after{
+    content:"Sent";
+}
+.categories:hover li.fa-firstdraft::after{
+    content:"Drafts";
 }

@@ -1,0 +1,4 @@
+@import './home.css';
+@import '../cmps/hero.css';
+@import '../cmps/home-features.css';
+@import '../cmps/home-team.css';

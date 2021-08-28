@@ -1,0 +1,22 @@
+.filter-mail{
+    margin-top: 10px;
+    align-self: center;
+    border-radius: 5px;
+    background-color: #F1F3F4;
+}
+.filter-mail input{
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #F1F3F4;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.filter-mail select{
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #F1F3F4;
+    outline: none;
+    border: none;
+}
