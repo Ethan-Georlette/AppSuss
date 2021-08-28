@@ -1,12 +1,15 @@
 @import './parts/base.css';
 @import './parts/helpers.css';
 @import './parts/fonts.css';
-<<<<<<< HEAD
-@import './apps/keep/new-note.css';
-=======
-@import './main-pages/home-main.css';
 @import './cmps/app-header.css';
 @import './cmps/app-footer.css';
->>>>>>> 38ae25d3bf197e5721e940de0a43f101a1c13de2
+@import './main-pages/home-main.css';
+
+
+@import './apps/keep/new-note.css';
+@import './apps/keep/note-todos.css';
+
 @import './apps/keep/note.preview.css';
+
+
 @import './apps/mail/mail.main.css'
