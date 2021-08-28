@@ -45,7 +45,7 @@ export class NoteAppMain extends React.Component {
     return (
       <div className='note-app-main flex column align-center'>
         <NewNote onAddNote={this.onAddNote} />
-        < NoteList notes={notesToRender} onUpdateNoteStyle={this.onUpdateNoteStyle} />
+        < NoteList notes={notesToRender} onHandleChange={this.loadNotes} onUpdateNoteStyle={this.onUpdateNoteStyle} />
       </div>
     )
   }

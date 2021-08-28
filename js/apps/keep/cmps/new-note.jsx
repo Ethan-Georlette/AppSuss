@@ -27,7 +27,8 @@ export class NewNote extends React.Component {
     }
   }
 
-  onClick = (ev) => {
+  onChangeType = (ev) => {
+    console.log('on change type');
     ev.preventDefault()
     const type = ev.target.value
 
@@ -52,20 +53,6 @@ export class NewNote extends React.Component {
     this.setState({ [field]: val })
 
 
-    // const val = (inputName === 'content-input' && type === 'note-todos') ?
-    //   this.getTodosFromString(target.value) : target.value;
-    // if (inputName === 'label-input') {
-    //   field = type === 'note-txt' ? 'txt' : (type === 'note-todos' || type === 'note-video') ? 'label' :
-    //     type === 'note-img' ? 'title' : '';
-    // }
-    // else {
-    //   field = (type === 'note-video' || type === 'note-img') ? 'url' :
-    //     type === 'note-todos' ? 'todos' : '';
-    // }
-    // return this.setState(prevState => ({
-    //   info: { ...prevState.info, [field]: val },
-    //   todosString: (inputName === 'content-input' && type === 'note-todos') ? target.value : ''
-    // }))
   }
 
 
@@ -91,16 +78,16 @@ export class NewNote extends React.Component {
 
       </div>
       <div className="buttons flex align-center">
-        <button value='note-txt' className={`new-btn note-txt-btn ${type === 'note-txt' ? 'clicked' : ''}`}
-          onClick={this.onClick}></button>
-        <button value='note-todos' className={`new-btn note-todos-btn ${type === 'note-todos' ? 'clicked' : ''}`}
-          onClick={this.onClick} ></button>
-        <button value='note-img' className={`new-btn note-img-btn ${type === 'note-img' ? 'clicked' : ''}`}
-          onClick={this.onClick} ></button>
-        <button value='note-video' className={`new-btn note-video-btn ${type === 'note-video' ? 'clicked' : ''}`}
-          onClick={this.onClick} ></button>
-        <button>submit</button>
+        <button type='button' value='note-txt' className={`new-btn note-txt-btn ${type === 'note-txt' ? 'clicked' : ''}`}
+          onClick={this.onChangeType}></button>
+        <button type='button' value='note-todos' className={`new-btn note-todos-btn ${type === 'note-todos' ? 'clicked' : ''}`}
+          onClick={this.onChangeType} ></button>
+        <button type='button' value='note-img' className={`new-btn note-img-btn ${type === 'note-img' ? 'clicked' : ''}`}
+          onClick={this.onChangeType} ></button>
+        <button type='button' value='note-video' className={`new-btn note-video-btn ${type === 'note-video' ? 'clicked' : ''}`}
+          onClick={this.onChangeType} ></button>
       </div>
+      <button>submit</button>
     </form>
   }
 }

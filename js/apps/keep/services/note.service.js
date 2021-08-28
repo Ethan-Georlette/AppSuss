@@ -105,11 +105,18 @@ function query(filterBy = null) {
   return Promise.resolve(gNotes)
 }
 
+function toggleTodo(note, todoIDx, shoudBeChecked) {
+  note.info.todos[todoIDx].doneAt = shoudBeChecked ? Date.now : null
+  return Promise.resolve()
+
+}
+
 export const noteService = {
   createNote,
   addNote,
   getNoteById,
   query,
-  updateStyle
+  updateStyle,
+  toggleTodo
 
 }

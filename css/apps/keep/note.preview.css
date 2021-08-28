@@ -4,12 +4,13 @@
 }
 
 .note {
-  width     : 250px;
+  width     : 280px;
   align-self: flex-start
 }
 
-.note-txt {
-  padding: 0.7rem 0.7rem 2.5rem;
+.note-txt,
+.note-todos {
+  padding: 0.7rem 0.7rem 1rem;
 }
 
 .note-img {
@@ -36,27 +37,9 @@
   height: 100%;
 }
 
-.new-note-container {
-  box-shadow   : 0px 0px 3px 0px rgb(48 47 47 / 75%);
-  border       : none;
-  border-radius: 0.7rem;
-  padding      : 10px;
-  margin       : 0 auto;
-  width        : 50%
-}
 
-.inputs-container {
-  width: 100%
-}
 
-.new-note-input {
-  display    : block;
-  border     : none;
-  outline    : none;
-  width      : 80%;
-  line-height: 1.5rem;
-  font-size  : 1rem;
-}
+
 
 .note-app-main {
   margin   : 20px auto;
@@ -64,15 +47,9 @@
   gap      : 15px
 }
 
-.new-btn {
-  border          : none;
-  color           : lightgrey;
-  background-color: rgba(255, 255, 255, 0);
-}
 
-.new-btn.clicked {
-  color: black
-}
+
+
 
 .note-txt-btn::before {
   font-family: icons;

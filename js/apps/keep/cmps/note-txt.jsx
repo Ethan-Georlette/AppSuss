@@ -18,14 +18,20 @@ export class NoteTxt extends React.Component {
   styled
   componentDidUpdate() {
     console.log('Component is updating');
-    const { note } = this.props
+    // const { note } = this.props
 
   }
 
   handleMouse = (ev) => {
-    console.log(ev.type);
-    const newHoverd = ev.type === 'mouseover' ? true : false
-    this.setState({ isHovered: newHoverd })
+    // console.log(ev.type);
+    if (ev.type === 'mouseover') {
+      if (!this.state.isHovered) return this.setState({ isHovered: true })
+    } else {
+      console.log('mouseOut');
+      this.setState({ isHovered: false })
+    }
+    // // const newHoverd = ev.type === 'mouseover'  ? true : false
+    // this.setState({ isHovered: newHoverd })
   }
 
 
@@ -35,10 +41,10 @@ export class NoteTxt extends React.Component {
     this.styled = note.styled
     if (!info || !this.styled) return <div>loading</div>
     return (
-      <div className='note note-txt flex column' onMouseOut={this.handleMouse} onMouseOver={this.handleMouse} style={this.styled}>
+      <div className='note note-txt flex column' style={this.styled}>
         <p>{info.txt}</p>
         <p>{isPinned}</p>
-        {this.state.isHovered && <NoteFeatures id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />}
+        <NoteFeatures className='note-features' id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
 
     )
