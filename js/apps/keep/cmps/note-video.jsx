@@ -24,14 +24,14 @@ export class NoteVideo extends React.Component {
     if (!info || !this.styled) return <div>loading</div>
     const { url, label } = info
     return (
-      <div className='note note-video flex column' style={this.styled}>
+      <div className='note note-video flex column center' style={this.styled}>
         <div className='video-container'>
           <iframe src={url.replace('watch?v=', 'embed/')}
             title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
           </iframe>
         </div>
         <p>{label}</p>
-        <NoteFeatures id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
+        <NoteFeatures noteId={this.props.note.id} onHandleChange={this.props.onHandleChange} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
     )
   }

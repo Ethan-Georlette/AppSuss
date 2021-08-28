@@ -1,5 +1,6 @@
 import { utilService } from "../../../services/util.service.js"
 import { noteService } from "../services/note.service.js"
+import { NoteFeatures } from "./note-features.jsx"
 
 export class NoteTodos extends React.Component {
   state = {
@@ -100,6 +101,7 @@ export class NoteTodos extends React.Component {
           <label className='new-todo-label' htmlFor="new-todo-input">+</label>
           <input type="text" id='new-todo-input' onChange={this.addNewTodoListener} className='new-todo-input' placeholder={`Wha's is your next todo?`} />
         </div>
+        <NoteFeatures noteId={this.props.note.id} onHandleChange={this.props.onHandleChange} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
     )
   }

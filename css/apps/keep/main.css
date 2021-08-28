@@ -1,4 +1,5 @@
-input {
+input,
+p {
   padding: 0;
   margin : 0;
 }
@@ -9,14 +10,19 @@ input {
 }
 
 .note {
-  display      : block;
   width        : 280px;
   /* align-self: flex-start */
 }
 
-.note-txt,
-.note-todos {
-  padding: 0.7rem 0.7rem 1rem;
+.note-txt {
+  padding: 0.7rem 0.7rem;
+}
+
+
+
+.note-txt {
+  display: flex;
+  gap    : 1rem;
 }
 
 .note-img {

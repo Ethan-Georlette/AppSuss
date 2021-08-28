@@ -1,0 +1,25 @@
+.note-features {
+  /* visibility: hidden; */
+  gap   : 3px;
+  width : 70%;
+  margin: auto;
+  color : #555
+}
+
+/* .icon {
+  width: 3px;
+} */
+
+.my-icon:hover {
+  color: black;
+}
+
+.palette-icon::before {
+  font-family: icons;
+  content    : '\f53f';
+}
+
+.delete-icon::before {
+  font-family: icons;
+  content    : '\f1f8';
+}

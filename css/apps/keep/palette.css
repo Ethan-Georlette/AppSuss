@@ -1,0 +1,11 @@
+.palette-container {
+  position: relative;
+}
+
+.palette {}
+
+.palette-container input {
+  width     : 1px;
+  height    : 1px;
+  visibility: hidden;
+}

@@ -9,18 +9,20 @@ export class NoteFeatures extends React.Component {
   onChangeStyle = (newStyle) => {
     this.props.onUpdateNoteStyle(this.props.id, newStyle)
   }
-
+  onDeleteNote = () => {
+    const { noteId } = this.props
+    noteService.deleteNote(noteId)
+      .then(this.props.onHandleChange())
+  }
   render() {
     const { paletteClicked } = this.state
     return (
-      <section>
-        <div>
-          {paletteClicked && <Palette />}
-        </div>
-        <div className='note-feature'>
-          <label htmlFor="palette" onClick={() => this.setState({ paletteClicked: true })} className='palette'></label>
-        </div >
-      </section>
+
+      <div className='note-features flex'>
+        <Palette className='palette' />
+        <label htmlFor="palette" className='my-icon palette-icon'></label>
+        <label htmlFor="palette" onClick={this.onDeleteNote} className='my-icon delete-icon'></label>
+      </div >
     )
   }
 }

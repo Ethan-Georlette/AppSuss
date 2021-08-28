@@ -87,6 +87,13 @@ function getNoteById(noteId) {
   return Promise.resolve(note)
 }
 
+function deleteNote(noteId) {
+  const idx = gNotes.findIndex(note => note.id === noteId)
+  gNotes.splice(idx, 1)
+  storageService.saveToStorage('gNotes', gNotes)
+  return Promise.resolve()
+}
+
 const getTodosFromString = (strToFormat) => {
   return strToFormat.split(',').map(str => ({ txt: str }))
 }
@@ -139,7 +146,8 @@ export const noteService = {
   toggleTodo,
   deleteTodo,
   addTodo,
-  updateTodo
+  updateTodo,
+  deleteNote
 
 
 }
