@@ -19,8 +19,8 @@ export class NoteImg extends React.Component {
     if (!info) return <div>loading</div>
     const { url, title } = info
     return (
-      <div className="flex column space-between">
-        <div className='note note-img flex column' style={styled}>
+      <div className="note note-img flex column space-between" style={styled}>
+        <div className='note img-container flex column' >
           <img src={url} />
           <p>{title}</p>
         </div>

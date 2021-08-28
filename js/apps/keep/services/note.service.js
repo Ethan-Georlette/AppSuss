@@ -3,7 +3,7 @@ import { storageService } from "../../../services/storage.service.js";
 import { utilService } from "../../../services/util.service.js";
 
 const _defaultStyle = {
-  backgroundColor: '#add8e6'
+  backgroundColor: '#42e3f5'
 }
 let gNotes = storageService.loadFromStorage('gNotes') || [
   {
@@ -16,10 +16,12 @@ let gNotes = storageService.loadFromStorage('gNotes') || [
   {
     id: "n102", type: "note-img",
     isPinned: true,
-    info: { url: ".././assets/img/keep/idanIsAFather.jpg", title: "Bobi and Me" },
+    info: {
+      title: "TonnuChke!! 😍",
+      url: 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fa61db148-0766-11ec-89b3-29a9a04e8645.jpg?crop=2332%2C1312%2C716%2C42&resize=1200'
+    },
     styled: {
-      backgroundColor: "#00d",
-      writable: true
+      backgroundColor: '#42e3f5'
     }
   },
   {
@@ -27,9 +29,7 @@ let gNotes = storageService.loadFromStorage('gNotes') || [
     type: 'note-video',
     isPinned: true,
     info: {
-      label: 'Chris Martin at his very best',
-      // url: 'https://www.youtube.com/watch?v=y_KCK-pHzqk'
-      // url: 'https://www.youtube.com/watch?v=dlOHVCZZwEc&t=331s'
+      label: 'How to Create HTML5 Videos',
       url: 'https://www.youtube.com/watch?v=OOy764mDtiA'
     },
     styled: {
@@ -54,7 +54,22 @@ let gNotes = storageService.loadFromStorage('gNotes') || [
       writable: true
     },
 
-  }]
+  },
+  {
+    id: 'n099',
+    type: 'note-video',
+    isPinned: true,
+    info: {
+      label: 'Dont look back in anger',
+      url: 'https://www.youtube.com/watch?v=y_KCK-pHzqk'
+    },
+    styled: {
+      backgroundColor: '#888',
+      writable: true
+    },
+    writable: true
+  },
+]
 
 storageService.saveToStorage('gNotes', gNotes)
 

@@ -25,15 +25,6 @@ p {
   gap    : 1rem;
 }
 
-.note-img {
-  gap    : 10px;
-  padding: 0;
-
-}
-
-.note-img img {
-  width: 100%;
-}
 
 .col>:not(:last-child) {
   margin-bottom: 20px;

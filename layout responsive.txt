@@ -1,0 +1,5 @@
+לכל מי שמסתבך בלייאאוט של המיס קיפ אפשר לתת את ההגדרות הבאות 
+Colomns:3 250 px 
+Break-inside:avoid-column 
+העליון לקונטינר והתחתון לנוטס 
+וזה גם עושה אתזה רספונסיבי ! 😘

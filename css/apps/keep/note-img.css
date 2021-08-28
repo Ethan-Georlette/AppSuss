@@ -3,6 +3,20 @@
   padding-bottom: 1rem;
 }
 
+.note-img {
+  gap       : 10px;
+  /* padding: 0; */
+
+}
+
+.note-img img {
+  width: 100%;
+}
+
+.note-img .img-container {
+  gap: 10px
+}
+
 .video-container {
   height: 140.625px;
 

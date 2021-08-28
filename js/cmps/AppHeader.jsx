@@ -1,3 +1,4 @@
+import { eventBusService } from "../services/event-bus-service.js";
 
 const { NavLink } = ReactRouterDOM
 export class AppHeader extends React.Component {
@@ -5,7 +6,12 @@ export class AppHeader extends React.Component {
   menuToggle = ({ target }) => {
     document.body.classList.toggle("menu-open");
   }
-
+  onSendingNote = (noteInfo) => {
+    console.log('noteInfo', noteInfo);
+  }
+  componentDidMount() {
+    eventBusService.on('send-note', this.onSendingNote)
+  }
   render() {
     return (
       <React.Fragment>
