@@ -6,6 +6,7 @@
 @import './main-pages/home-main.css';
 
 
+@import './apps/keep/main.css';
 @import './apps/keep/new-note.css';
 @import './apps/keep/note-todos.css';
 

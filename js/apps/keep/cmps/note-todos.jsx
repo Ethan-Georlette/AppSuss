@@ -5,7 +5,7 @@ export class NoteTodos extends React.Component {
   state = {
     info: null,
     isPinned: null,
-    styled: null
+    styled: null,
   }
 
   componentDidMount() {
@@ -19,10 +19,17 @@ export class NoteTodos extends React.Component {
   // { txt: "Coding power", doneAt: 187111111 }
   renderTodos = (todos) => {
     const { note } = this.props
+
     return todos.map((todo, idx) => {
       const isChecked = todo.doneAt ? true : false
-      return <div key={`${note.id}-${idx}`} className={`flex space-between ${todo.doneAt ? 'done todo' : 'todo'}`}>
-        <input type="checkbox" checked={isChecked} onClick={this.onToggleChecked} id={idx} /> {todo.txt}</div>
+      return <div key={`${note.id}-${idx}`}
+        className={`flex space-between`}>
+        <div>
+          <input className='todo-checkbox' type="checkbox" checked={isChecked} onClick={this.onToggleChecked} id={idx} />
+          <span className={todo.doneAt ? 'done todo' : 'todo'}>{todo.txt}</span>
+        </div>
+        <button className='delete-todo-btn' id={idx} onClick={this.onDeleteTodo}>X</button>
+      </div>
     })
   }
 
@@ -36,6 +43,33 @@ export class NoteTodos extends React.Component {
 
 
   }
+  onDeleteTodo = ({ target }) => {
+    const { note } = this.props
+    const todoIdx = target.id
+    noteService.deleteTodo(note, todoIdx)
+      .then(this.props.onHandleChange())
+  }
+
+  hasNewTodoListenerHasRegistered = false
+  addNewTodoListener = ({ target }) => {
+    if (!this.hasNewTodoListenerHasRegistered) {
+      this.hasNewTodoListenerHasRegistered = true
+      const { note } = this.props
+      target.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          // console.log(event.target.value);
+          const newTodo = event.target.value
+          if (newTodo.length > 0) {
+            noteService.addTodo(note, newTodo)
+              .then(this.props.onHandleChange())
+            event.target.value = ''
+            event.target.blur()
+          }
+        }
+      })
+    }
+  }
+
   render() {
 
     const { info, isPinned, styled } = this.state
@@ -47,10 +81,11 @@ export class NoteTodos extends React.Component {
         <h3>{label}</h3>
         <div className="todo-list flex column">
           {this.renderTodos(todos)}
-
         </div>
-        {/* <ul className='todo-list clean-list'>
-        </ul> */}
+        <div>
+          <label className='new-todo-label' htmlFor="new-todo-input">+</label>
+          <input type="text" id='new-todo-input' onChange={this.addNewTodoListener} className='new-todo-input' placeholder={`Wha's is your next todo?`} />
+        </div>
       </div>
     )
   }

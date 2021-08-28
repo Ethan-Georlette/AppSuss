@@ -1,0 +1,25 @@
+.delete-todo-btn:hover {
+  background-color: #666;
+  color           : #f4f4f4
+}
+
+.todo-checkbox,
+.new-todo-label {
+  display     : inline-block;
+  margin-right: 0.6rem;
+}
+
+.new-todo-input {
+  background-color: transparent;
+  padding         : 2px;
+  border          : 0;
+  box-shadow      : 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.new-todo-input::placeholder {
+  color: black
+}
+
+.todo-list {
+  gap: 3px;
+}

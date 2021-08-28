@@ -111,12 +111,25 @@ function toggleTodo(note, todoIDx, shoudBeChecked) {
 
 }
 
+function deleteTodo(note, todoIdx) {
+  note.info.todos.splice(todoIdx, 1)
+  return Promise.resolve()
+}
+
+function addTodo(note, newTodo) {
+  note.info.todos.push({ txt: newTodo, doneAt: null })
+  return Promise.resolve()
+}
+
 export const noteService = {
   createNote,
   addNote,
   getNoteById,
   query,
   updateStyle,
-  toggleTodo
+  toggleTodo,
+  deleteTodo,
+  addTodo
+
 
 }
