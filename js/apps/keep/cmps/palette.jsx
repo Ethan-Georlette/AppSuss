@@ -3,7 +3,7 @@ export function Palette({ onChangeStyle }) {
   return (
     <section className="pallate-container flex">
       {colors.map(color => (
-        <article key={color} onClick={() => onChangeStyle({ 'backgroundColor': color })} style={{ backgroundColor: color }} className="input-pick"></article>
+        <article key={color} onClick={() => onChangeStyle({ 'backgroundColor': color })} style={{ backgroundColor: color }} className="palette-option"></article>
       ))}
     </section>
   )

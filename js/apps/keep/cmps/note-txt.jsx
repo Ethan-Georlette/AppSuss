@@ -41,10 +41,9 @@ export class NoteTxt extends React.Component {
     this.styled = note.styled
     if (!info || !this.styled) return <div>loading</div>
     return (
-      <div className='note note-txt flex column' style={this.styled}>
+      <div className="note note-txt flex column" style={this.styled}>
         <p>{info.txt}</p>
-        <p>{isPinned}</p>
-        <NoteFeatures className='note-features' id={this.props.note.id} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
+        <NoteFeatures noteId={this.props.note.id} onHandleChange={this.props.onHandleChange} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
 
     )

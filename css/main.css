@@ -8,6 +8,10 @@
 
 @import './apps/keep/main.css';
 @import './apps/keep/new-note.css';
+@import './apps/keep/note-features.css';
+@import './apps/keep/note-video.css';
+@import './apps/keep/note-img.css';
+@import './apps/keep/palette.css';
 @import './apps/keep/note-todos.css';
 
 @import './apps/keep/note.preview.css';

@@ -1,3 +1,11 @@
+.note-todos {
+  padding: 0.7rem 0.7rem 1rem;
+}
+
+.note-todos>:nth-child(3) {
+  margin-bottom: 1rem;
+}
+
 .delete-todo-btn:hover {
   background-color: #666;
   color           : #f4f4f4
@@ -9,15 +17,24 @@
   margin-right: 0.6rem;
 }
 
-.new-todo-input {
+.todo.done {
+  text-decoration: line-through;
+}
+
+.new-todo-input,
+.todo,
+.todo.done {
   background-color: transparent;
   padding         : 2px;
   border          : 0;
-  box-shadow      : 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.new-todo-input {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .new-todo-input::placeholder {
-  color: black
+  color: #555
 }
 
 .todo-list {

@@ -1,3 +1,4 @@
+import { NoteFeatures } from "./note-features.jsx"
 
 export class NoteImg extends React.Component {
   state = {
@@ -18,9 +19,12 @@ export class NoteImg extends React.Component {
     if (!info) return <div>loading</div>
     const { url, title } = info
     return (
-      <div className='note note-img flex column' style={styled}>
-        <img src={url} />
-        <p>{title}</p>
+      <div className="flex column space-between">
+        <div className='note note-img flex column' style={styled}>
+          <img src={url} />
+          <p>{title}</p>
+        </div>
+        <NoteFeatures noteId={this.props.note.id} onHandleChange={this.props.onHandleChange} onUpdateNoteStyle={this.props.onUpdateNoteStyle} />
       </div>
     )
   }
