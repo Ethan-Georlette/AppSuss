@@ -3,6 +3,92 @@
 }
 
 .app-header>nav {
-  display: flex;
-  gap    : 15px
+  gap    : 15px;
+}
+.icon-header{
+  background-image: url('../../assets/img/main/icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 90px;
+  height: 40px;
+}
+.logo-name{
+  color: rgb(88, 88, 88);
+}
+.header-links i:hover::before{
+  color: #1EAE98;
+  transition: 0.5s;
+}
+.header-links .active i::before{
+  color: #3DB2FF;
+  transition: 0.5s;
+}
+.menu-open .screen{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.555);
+  z-index: 5;
+}
+.btn-menu{
+  margin-right: 15px;
+}
+.menu-open .header-links{
+  transform: translateX(0);
+  box-shadow: 1px ,1px ,1px black;
+}
+.header-links{
+  position:fixed;
+  padding-top: 20px;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+  z-index: 10;
+  right: 0;
+  width: 40vw;
+  transform: translateX(100%);
+  transition: 0.2s;
+  background-color: rgba(240, 248, 255, 0.685);
+}
+
+
+@media (max-width: 400px) {
+  .header-links i::after{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left:10px ;
+    color: rgb(63, 62, 62);
+  }
+  .header-links .fa-home::after{
+    content: "Home";
+  }
+  .header-links .fa-envelope::after{
+    content: "Mail";
+  }
+  .header-links .fa-sticky-note::after{
+    content: "Keep";
+  }
+  .header-links .fa-book-open::after{
+    content: "Books";
+  }
+
+}
+@media (min-width: 400px) {
+  .btn-menu {
+      display: none;
+  }
+  .header-links{
+    padding-top: 0;
+    position: static;
+    flex-direction: row;
+    z-index: auto;
+    width: auto;
+    margin-right: 15px;
+    background-color: rgba(251, 251, 251, 0);
+    transform: translateX(0);
+  }
 }
