@@ -1,0 +1,122 @@
+
+
+/* ICONS */
+
+.fas.fa-star.yellow::before {
+    color: #ceeb2f;
+}
+
+.books-container{
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(290px, 1fr) );
+    gap: 10px;
+}
+.book-card h2{
+   text-transform: capitalize;
+}
+.book-card{
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.book-detail img{
+    height: auto;
+    width: 300px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px 14px;
+    align-self: center;
+}
+.book-detail h1{
+    text-transform: capitalize;
+}
+.book-detail h2 span{
+    color: grey;
+}
+.book-detail{
+    padding: 10px;
+    border: 1px solid beige;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+/* .categories */
+.long-txt span:not(:first-child):hover{
+    cursor: pointer;
+}
+.long-txt span:not(:first-child){
+    color: blue;
+    text-decoration: underline;
+}
+
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.books-filter{
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+    grid-template-columns: repeat(5,1fc);
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    gap: 10px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.596);
+    color: cornsilk;
+}
+input{
+    height: 100%;
+    width: 100%;
+}
+.books-filter .name{
+    grid-row: 1;
+    grid-column: 1;
+}
+.books-filter #by-name{
+    grid-row: 1;
+    grid-column: 2/5;
+}
+.books-filter .author{
+    grid-row: 2;
+    grid-column: 1;
+}
+.books-filter #by-author{
+    grid-row: 2;
+    grid-column: 2/5;
+}
+.books-filter .minPrice{
+    grid-row: 3;
+    grid-column: 1;
+}
+.books-filter #min-price{
+    grid-row: 3;
+    grid-column: 2/5;
+}
+.books-filter .maxPrice{
+    grid-row: 4;
+    grid-column: 1;
+}
+.books-filter #max-price{
+    grid-row: 4;
+    grid-column: 2/5;
+}
+.books-filter .catagories{
+    grid-row: 5;
+    grid-column: 1;
+}
+.books-filter .by-category{
+    grid-row: 5;
+    grid-column: 2/5;
+}
+.books-filter button{
+    grid-row:6;
+    grid-column: 2/4;
+}
+.filter-menu{
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px 14px;
+    margin: 6px;
+    width: 150px;
+    font-size: 1.5rem;
+}

@@ -13,11 +13,16 @@
 .mail-preview a{
     width: 100%;
 }
+.mail-preview .adress{
+    width: 30%;
+}
+.mail-preview .subject{
+    width: 15%;
+}
 .mail-preview span:not(.date){
-    width: 20%;
     text-align: left;
     overflow: hidden;
-    margin-left: 10px;
+    margin-left: 5px;
     white-space: nowrap;
 }
 .mail-preview span.date{

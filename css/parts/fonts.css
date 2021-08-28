@@ -91,4 +91,9 @@
     -webkit-text-stroke-color:#555762 ;
     -webkit-text-stroke-width:1.5px ;
 }
+.fas.fa-filter::before {
+    color: #151720;
+    content: "\f0b0";
+}
+
 
