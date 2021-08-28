@@ -1,3 +1,8 @@
+.todo-list input {
+  width : auto !important;
+  height: auto !important;
+}
+
 .note-todos {
   padding: 0.7rem 0.7rem 1rem;
 }

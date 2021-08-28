@@ -17,7 +17,7 @@ let gNotes = storageService.loadFromStorage('gNotes') || [
     id: "n102", type: "note-img",
     isPinned: true,
     info: {
-      title: "TonnuChke!! 😍",
+      title: "God's new Team",
       url: 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fa61db148-0766-11ec-89b3-29a9a04e8645.jpg?crop=2332%2C1312%2C716%2C42&resize=1200'
     },
     styled: {
