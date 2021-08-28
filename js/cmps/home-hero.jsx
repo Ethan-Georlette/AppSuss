@@ -16,7 +16,7 @@ export class HomeHero extends React.Component {
                                 <h1>Mail</h1>
                             </div>
                         </Link>
-                        <Link to="/keep">
+                        <Link to="/keeper">
                             <div className="link-button">
                                 <h1>Keep</h1>
                             </div>

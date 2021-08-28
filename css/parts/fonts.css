@@ -69,6 +69,22 @@
     content: "\f1f8";
     color: #555762;
 }
+.fas.fa-home::before {
+    content: "\f015";
+    color: #555762;
+}
+.fas.fa-sticky-note::before {
+    content: "\f249";
+    color: #555762;
+}
+.fas.fa-book-open::before {
+    content: "\f518";
+    color: #555762;
+}
+.fas.fa-bars::before {
+    content: "\f0c9";
+    color: #555762;
+}
 .fas.fas.fa-envelope-open::before {
     content: "\f2b6";
     color: #00000000;

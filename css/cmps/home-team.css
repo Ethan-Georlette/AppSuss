@@ -1,13 +1,20 @@
 .profile-pic{
     height: 200px;
+    width: 150px;
+    background-color: rgb(47, 47, 47);
     border-radius: 50%;
-    width: 200px;
 }
 .ethan{
     background-image: url('../../assets/img/main/Ethan_profile.jpg');
-    background-size: 70%;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position:30px -6px;
+    background-position:0px -6px;
+}
+.ori{
+    background-image: url('../../assets/img/main/Ori_profile.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position:0px 0px;
 }
 .info{
     padding: 20px;

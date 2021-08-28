@@ -2,19 +2,28 @@
 const { NavLink } = ReactRouterDOM
 export class AppHeader extends React.Component {
 
+  menuToggle = ({ target }) => {
+    document.body.classList.toggle("menu-open");
+  }
+
   render() {
-
     return (
-
-      <section className="app-header">
-        <nav>
-          <NavLink exact to="/" >Home</NavLink>
-          <NavLink exact to="/mail/inbox" >Mail Inbox</NavLink>
-          <NavLink to="/mail" >Mail</NavLink>
-          <NavLink to="/keeper" >Keeper</NavLink>
-          <NavLink to="/Books" >Books</NavLink>
-        </nav>
-      </section>
+      <React.Fragment>
+        <div className="screen" onClick={this.menuToggle}></div>
+        <section className="app-header flex space-between center">
+          <div className="logo flex center">
+            <div className="icon-header"></div>
+            <h2 className="logo-name">AppSuss</h2>
+          </div>
+          <i onClick={this.menuToggle} className="btn-menu fas fa-bars"></i>
+          <nav className="flex center header-links">
+            <NavLink exact to="/" ><i className="fas fa-home"></i></NavLink>
+            <NavLink to="/mail" ><i className="fas fa-envelope"></i></NavLink>
+            <NavLink to="/keeper" ><i className="fas fa-sticky-note"></i></NavLink>
+            <NavLink to="/Books" ><i className="fas fa-book-open"></i></NavLink>
+          </nav>
+        </section>
+      </React.Fragment>
     );
   }
 }

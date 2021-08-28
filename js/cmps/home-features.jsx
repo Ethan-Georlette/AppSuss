@@ -16,7 +16,7 @@ export function HomeFeatures() {
                 <img src="../assets/img/main/keep.png" />
                 <h1>Keep</h1>
                 <LongText txt="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci similique, quam ratione perferendis repellendus omnis odit accusantium facere, suscipit exercitationem quasi, ducimus at blanditiis beatae sit porro labore possimus numquam!"/>
-                <Link to="/keep">
+                <Link to="/keeper">
                     Go to Keep
                 </Link>
             </div>

@@ -53,3 +53,14 @@ title h1{
     background-color: #a9f1df77;
     transition: 0.7s;
 }
+@media (max-width: 450px) {
+    title h1{
+        font-size: 3rem;
+    }
+    .icon{
+        display: none;
+    }
+    .link-button h1{
+        font-size: 1.2rem;
+    }
+}
