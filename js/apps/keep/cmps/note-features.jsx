@@ -4,7 +4,7 @@ import { Palette } from "./palette.jsx"
 
 export class NoteFeatures extends React.Component {
   state = {
-    paletteClicked: false,
+    // paletteClicked: false,
   }
 
   onChangeStyle = (newStyle) => {
@@ -21,13 +21,18 @@ export class NoteFeatures extends React.Component {
     noteService.getNoteById(noteId)
       .then(note => eventBusService.emit('send-note', note.info))
   }
+  onChangeBgColor = (noteId, newStyle) => {
+    noteService.updateStyle(noteId, newStyle)
+      .then(this.props.onHandleChange())
+  }
   render() {
-    const { paletteClicked } = this.state
     return (
 
       <div className='note-features flex'>
-        <Palette className='palette' />
-        <label htmlFor="palette" className='my-icon palette-icon'></label>
+        <label htmlFor="palette" className='my-icon palette-icon'>
+          <Palette className='palette' noteId={this.props.noteId} onChangeBgColor={this.onChangeBgColor} />
+          {/* onChangeStyle */}
+        </label>
         <label htmlFor="palette" onClick={this.onDeleteNote} className='my-icon delete-icon'></label>
         <label htmlFor="palette" onClick={this.onEmailNote} className='my-icon mail-icon'></label>
       </div >

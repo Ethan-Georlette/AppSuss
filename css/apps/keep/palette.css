@@ -1,11 +1,25 @@
+.palette,
 .palette-container {
-  position: relative;
+  display : none;
+  position: absolute;
+  top     : -30px
 }
 
-.palette {}
 
-.palette-container input {
+.palette-icon:hover .palette-container {
+  display: flex;
+
+  /* visibility: visible; */
+}
+
+/* .palette-container input {
   width     : 1px;
   height    : 1px;
   visibility: hidden;
+} */
+
+.palette-option {
+  width : 30px;
+  height: 30px;
+
 }

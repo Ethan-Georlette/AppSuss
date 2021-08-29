@@ -51,7 +51,7 @@ let gNotes = storageService.loadFromStorage('gNotes') || [
     },
     styled: {
       backgroundColor: '#888',
-      writable: true
+      // writable: true
     },
 
   },
@@ -113,16 +113,18 @@ const getTodosFromString = (strToFormat) => {
   return strToFormat.split(',').map(str => ({ txt: str }))
 }
 
-function updateStyle(id, styled) {
-  const note = gNotes.find(note => note.id === id)
-  note.styled.whatever = 'muki'
+function updateStyle(noteId, styled) {
+
+  const note = gNotes.find(note => note.id === noteId)
   note.styled = styled
-  // note.styled = styled
   storageService.saveToStorage('gNotes', gNotes)
   return Promise.resolve()
 }
 
 function query(filterBy = null) {
+  console.log('gNotes', gNotes)
+  const gNotesStorage = storageService.loadFromStorage('gNotes')
+  console.log('gNotes from storage', gNotesStorage);
   return Promise.resolve(gNotes)
 }
 

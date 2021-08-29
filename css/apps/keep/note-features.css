@@ -1,4 +1,5 @@
 .note-features {
+  position  : relative;
   visibility: hidden;
   gap       : 3px;
   width     : 70%;
@@ -10,9 +11,6 @@
   visibility: visible;
 }
 
-/* .icon {
-  width: 3px;
-} */
 
 .my-icon:hover {
   color: black;

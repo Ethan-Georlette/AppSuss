@@ -6,7 +6,8 @@ export class NoteAppMain extends React.Component {
 
   state = {
     filterBy: null,
-    notesToRender: null
+    notesToRender: null,
+    notesChanged: 1
   }
 
   componentDidMount() {
@@ -18,9 +19,10 @@ export class NoteAppMain extends React.Component {
   };
 
   loadNotes = () => {
+    console.log('updating notes from app main');
     noteService.query(this.state.filterBy)
       .then((notesToRender) => {
-        this.setState({ notesToRender });
+        this.setState({ notesToRender, notesChanged: this.state.notesChanged + 1 });
       });
   };
   onAddNote = (newNote) => {
